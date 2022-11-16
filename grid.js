@@ -1,11 +1,11 @@
 function buildGrid(gridSize, parent) {
-  const cellWidth = Math.floor(screen.width / gridSize);
-  const cellHeight = Math.floor(screen.height / gridSize);
-  const cellSize = cellWidth > cellHeight ? cellHeight : cellWidth;
+  const cellWidth = Math.floor(window.innerWidth / gridSize);
+  const cellHeight = Math.floor(window.innerHeight / gridSize);
+  const cellSize = cellWidth < cellHeight ? cellWidth : cellHeight;
 
   const newGrid = document.createElement("div");
   newGrid.id = "grid";
-  newGrid.style.cssText = `grid-template-columns: repeat(${gridSize}, 1fr);`;
+  newGrid.style.cssText = `grid-template-columns: repeat(${gridSize}, ${cellSize}px);`;
 
   for (let i = 0; i < gridSize * gridSize; i++) {
     let newCell = document.createElement("div");
