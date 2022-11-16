@@ -1,0 +1,17 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+#gridSize {
+  position: absolute;
+  left: 1%;
+  top: 1%;
+  z-index: 1;
+}
+#grid {
+  display: flex;
+}
+#grid > * {
+  border: 1px dashed black;
+}
