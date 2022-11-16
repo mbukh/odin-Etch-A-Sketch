@@ -29,7 +29,10 @@ function buildGrid(gridSize, parent) {
 }
 
 toggleClass = (e) => {
-  if (!e.target.classList.contains('on') && !e.target.classList.contains('off')) {
+  if (
+    !e.target.classList.contains("on") &&
+    !e.target.classList.contains("off")
+  ) {
     e.target.classList.toggle("on");
     return;
   }
@@ -37,8 +40,15 @@ toggleClass = (e) => {
   e.target.classList.toggle("off");
 };
 
-const gridSize = 10;
+const gridSize = 16;
 const content = document.querySelector("#content");
 buildGrid(gridSize, content);
 
 window.addEventListener("resize", (event) => buildGrid(gridSize, content));
+
+const gridSizeButton = document.querySelector("#gridSizeButton");
+gridSizeButton.addEventListener("click", (e) => {
+  const promptAnswer = prompt("New grid size (max 100):", 16);
+  const newGridSize = Number.parseInt(promptAnswer);
+  if (newGridSize > 0 && newGridSize < 100) buildGrid(newGridSize, content);
+});

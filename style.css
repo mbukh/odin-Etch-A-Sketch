@@ -12,7 +12,7 @@ body {
   width: 100vw;
   height: 100vh;
 }
-#gridSize {
+#gridSizeButton {
   position: absolute;
   left: 1%;
   top: 1%;
