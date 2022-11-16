@@ -10,7 +10,8 @@
   z-index: 1;
 }
 #grid {
-  display: flex;
+  display: grid;
+  gap: 0;
 }
 #grid > * {
   border: 1px dashed black;
