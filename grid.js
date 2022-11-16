@@ -11,15 +11,8 @@ function buildGrid(gridSize, parent) {
     let newCell = document.createElement("div");
     newCell.style.width = cellSize + "px";
     newCell.style.height = cellSize + "px";
-    newCell.id = `cell${i}`;
-    newCell.addEventListener("mouseover", (e) => {
-      e.target.classList.remove("off");
-      e.target.classList.add("on");
-    });
-    newCell.addEventListener("mouseout", (e) => {
-      e.target.classList.remove("on");
-      e.target.classList.add("off");
-    });
+    newCell.addEventListener("mouseover", toggleClass);
+    newCell.addEventListener("mouseout", toggleClass);
     newGrid.appendChild(newCell);
   }
 
@@ -34,6 +27,15 @@ function buildGrid(gridSize, parent) {
 
   parent.appendChild(newGrid);
 }
+
+toggleClass = (e) => {
+  if (!e.target.classList.contains('on') && !e.target.classList.contains('off')) {
+    e.target.classList.toggle("on");
+    return;
+  }
+  e.target.classList.toggle("on");
+  e.target.classList.toggle("off");
+};
 
 const gridSize = 10;
 const content = document.querySelector("#content");
