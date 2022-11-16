@@ -3,6 +3,15 @@
   margin: 0;
   padding: 0;
 }
+body {
+  width: 100vw;
+  height: 100vh;
+}
+#content {
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+}
 #gridSize {
   position: absolute;
   left: 1%;
@@ -11,8 +20,35 @@
 }
 #grid {
   display: grid;
-  gap: 0;
+  /* gap: 2px; */
 }
 #grid > * {
-  border: 1px dashed black;
+  background-color: rgba(165, 42, 42, 0.6);
+  scale: 0.95;
+}
+#grid > *.on {
+  animation: startHover 200ms ease-in forwards;
+}
+#grid > *.off {
+  animation: endHover 550ms ease-out forwards;
+}
+@keyframes startHover {
+  0% {
+    transform: scale(1);
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    transform: scale(1.05);
+    filter: hue-rotate(180deg);
+  }
+}
+@keyframes endHover {
+  0% {
+    transform: scale(1.05);
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    transform: scale(1);
+    filter: hue-rotate(0deg);
+  }
 }
