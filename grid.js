@@ -40,7 +40,7 @@ toggleClass = (e) => {
   e.target.classList.toggle("off");
 };
 
-const gridSize = 16;
+let gridSize = 16;
 const content = document.querySelector("#content");
 buildGrid(gridSize, content);
 
@@ -49,6 +49,6 @@ window.addEventListener("resize", (event) => buildGrid(gridSize, content));
 const gridSizeButton = document.querySelector("#gridSizeButton");
 gridSizeButton.addEventListener("click", (e) => {
   const promptAnswer = prompt("New grid size (max 100):", 16);
-  const newGridSize = Number.parseInt(promptAnswer);
-  if (newGridSize > 0 && newGridSize < 100) buildGrid(newGridSize, content);
+  gridSize = Number.parseInt(promptAnswer);
+  if (gridSize > 0 && gridSize < 100) buildGrid(gridSize, content);
 });
